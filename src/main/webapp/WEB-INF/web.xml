@@ -36,12 +36,14 @@
             org.springframework.web.context.request.RequestContextListener
         </listener-class>
     </listener>
+
     <!--  Start JSF  -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <!--  JSF URL mapping  -->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
