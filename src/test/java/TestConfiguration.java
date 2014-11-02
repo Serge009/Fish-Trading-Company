@@ -1,10 +1,11 @@
-import org.serge009.fishtrading.core.dao.ContactDao;
 import org.serge009.fishtrading.core.entity.Contact;
 import org.serge009.fishtrading.core.entity.ContactTelDetail;
 import org.serge009.fishtrading.core.entity.Hobby;
+import org.serge009.fishtrading.service.ContactService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,9 +14,9 @@ import java.util.List;
 public class TestConfiguration {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("META-INF/spring/app-context.xml");
-        ContactDao contactService = ctx.getBean(
-                "jpaContactDao", ContactDao.class);
-        List<Contact> contacts = contactService.findAllWithDetail();
+        ContactService service = ctx.getBean("contactService", ContactService.class);
+        List<Contact> contacts = new ArrayList<>();
+        contacts.add(service.findById(1l));
         listContactsWithDetail(contacts);
     }
 

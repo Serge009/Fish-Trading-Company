@@ -15,8 +15,7 @@ import java.util.List;
 /**
  * Created by SERGE on 02.11.2014.
  */
-@Service("jpaContactDao")
-@Repository
+@Repository("contactDao")
 @Transactional
 public class ContactDaoImpl implements ContactDao {
     final static String ALL_CONTACT_NATIVE_QUERY =
