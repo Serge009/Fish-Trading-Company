@@ -3,6 +3,7 @@ package org.serge009.fishtrading.service;
 import org.serge009.fishtrading.core.dao.ContactDao;
 import org.serge009.fishtrading.core.entity.Contact;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
