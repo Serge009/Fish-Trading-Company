@@ -17,6 +17,13 @@ public class Product {
     @Column(name = "NAME")
     private String name;
 
+    @Version
+    @Column(name = "VERSION")
+    private int version;
+
+    @Column(name = "PRICE")
+    private double price;
+
     public Long getId() {
         return id;
     }
@@ -31,5 +38,21 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

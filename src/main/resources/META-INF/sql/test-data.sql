@@ -1,11 +1,27 @@
-insert into product (name) values ('Product 1');
-insert into product (name) values ('Product 2');
-insert into product (name) values ('Product 3');
-insert into product (name) values ('Product 4');
-insert into product (name) values ('Product 5');
-insert into product (name) values ('Product 6');
-insert into product (name) values ('Product 7');
-insert into product (name) values ('Product 8');
+insert into product (name, price) values ('Product 1', 10.5);
+insert into product (name, price) values ('Product 2', 22);
+insert into product (name, price) values ('Product 3', 20.9);
+insert into product (name, price) values ('Product 4', 16);
+insert into product (name, price) values ('Product 5', 35.1);
+insert into product (name, price) values ('Product 6', 12.6);
+insert into product (name, price) values ('Product 7', 9.8);
+insert into product (name, price) values ('Product 8', 14);
+insert into product (name, price) values ('Product 1', 10.5);
+insert into product (name, price) values ('Product 2', 22);
+insert into product (name, price) values ('Product 3', 20.9);
+insert into product (name, price) values ('Product 4', 16);
+insert into product (name, price) values ('Product 5', 35.1);
+insert into product (name, price) values ('Product 6', 12.6);
+insert into product (name, price) values ('Product 7', 9.8);
+insert into product (name, price) values ('Product 8', 14);
+insert into product (name, price) values ('Product 1', 10.5);
+insert into product (name, price) values ('Product 2', 22);
+insert into product (name, price) values ('Product 3', 20.9);
+insert into product (name, price) values ('Product 4', 16);
+insert into product (name, price) values ('Product 5', 35.1);
+insert into product (name, price) values ('Product 6', 12.6);
+insert into product (name, price) values ('Product 7', 9.8);
+insert into product (name, price) values ('Product 8', 14);
 
 
 insert into contact (first_name, last_name, birth_date) values ('Chris', 'Schaefer', '1981-05-03');
