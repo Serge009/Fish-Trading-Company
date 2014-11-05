@@ -9,6 +9,7 @@
     <http>
         <intercept-url pattern="/contact*" access="ROLE_ADMIN"/>
         <intercept-url pattern="/login*" access="ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/rest*" access="ROLE_ANONYMOUS"/>
         <form-login/>
         <logout/>
     </http>

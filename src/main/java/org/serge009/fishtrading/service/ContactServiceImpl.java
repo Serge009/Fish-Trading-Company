@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Created by SERGE on 02.11.2014.
@@ -25,5 +26,11 @@ public class ContactServiceImpl implements ContactService {
     @Transactional(readOnly = true)
     public Contact findById(Long id) {
         return contactDao.findById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Contact> findAll() {
+        return contactDao.findAll();
     }
 }

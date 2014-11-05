@@ -1,5 +1,9 @@
 package org.serge009.fishtrading.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -41,16 +45,19 @@ public class Contact implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "BIRTH_DATE")
+    @JsonSerialize(using = DateSerializer.class)
     private Date birthDate;
 
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL,
             orphanRemoval = true)
+    @JsonIgnore
     private Set<ContactTelDetail> contactTelDetails = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "contact_hobby_detail",
             joinColumns = @JoinColumn(name = "CONTACT_ID"),
             inverseJoinColumns = @JoinColumn(name = "HOBBY_ID"))
+    @JsonIgnore
     private Set<Hobby> hobbies = new HashSet<>();
 
     public Long getId() {
