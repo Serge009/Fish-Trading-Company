@@ -27,6 +27,10 @@ public class ProductsBean {
         products = productService.findAll();
     }
 
+    public void search() {
+        this.products = productService.findByKeyword("Product 1");
+    }
+
     public ProductService getProductService() {
         return productService;
     }

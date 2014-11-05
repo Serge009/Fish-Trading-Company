@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface ProductService {
     public List<Product> findAll();
+
+    public List<Product> findByKeyword(String keyword);
 }

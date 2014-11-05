@@ -21,4 +21,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAll() {
         return productDao.findAll();
     }
+
+    @Override
+    public List<Product> findByKeyword(String keyword) {
+        return productDao.findByKeyword(keyword);
+    }
 }

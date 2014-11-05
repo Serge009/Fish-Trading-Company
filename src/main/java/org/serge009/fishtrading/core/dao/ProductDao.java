@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface ProductDao {
     public List<Product> findAll();
+
+    public List<Product> findByKeyword(String keyword);
 }
