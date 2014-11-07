@@ -1,8 +1,5 @@
 package org.serge009.fishtrading.core.entity;
 
-import org.hibernate.search.annotations.*;
-import org.hibernate.search.annotations.Index;
-
 import javax.persistence.*;
 
 /**
@@ -10,7 +7,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "product")
-@Indexed
 public class Product {
 
     @Id
@@ -19,7 +15,6 @@ public class Product {
     private Long id;
 
     @Column(name = "NAME")
-    @Field(name = "name", index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String name;
 
     @Version
