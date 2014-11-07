@@ -14,6 +14,13 @@
         <p:commandButton value="Click Me!">
             <p:ajax event="click" async="true" listener="#{productsBean.search}" update="products"/>
         </p:commandButton>
+        <h:panelGrid columns="1" style="margin-bottom: 10px">
+            <h:outputText id="displayRange" value="Between 0 and 100" />
+            <p:slider for="txt6,txt7" display="displayRange" style="width: 400px" range="true" displayTemplate="Between {min} and {max}" />
+        </h:panelGrid>
+        <h:inputHidden id="txt6" value="0" />
+        <h:inputHidden id="txt7" value="100" />
+
         <p:dataScroller id="products" value="#{productsBean.products}" var="product" chunkSize="10">
             <f:facet name="header">
                 Scroll Down to Load More Cars
@@ -33,7 +40,7 @@
                 <h:outputText value="Price:"/>
                 <h:outputText value="#{product.price}" style="font-weight: bold"/>
             </h:panelGrid>
-            <hr />
+            <p:separator />
         </p:dataScroller>
     </h:form>
 </h:body>
