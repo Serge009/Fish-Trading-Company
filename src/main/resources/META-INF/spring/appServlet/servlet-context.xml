@@ -36,4 +36,18 @@
 
     <context:component-scan base-package="org.serge009.fishtrading.rest" />
 
+    <beans:bean id="xmlViewer"
+          class="org.springframework.web.servlet.view.xml.MarshallingView">
+        <beans:constructor-arg>
+            <beans:bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+                <beans:property name="classesToBeBound">
+                    <beans:list>
+                        <beans:value>org.serge009.fishtrading.core.entity.Coffee</beans:value>
+                    </beans:list>
+                </beans:property>
+            </beans:bean>
+        </beans:constructor-arg>
+    </beans:bean>
+
+    <beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
 </beans:beans>
