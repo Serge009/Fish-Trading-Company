@@ -43,6 +43,7 @@
                 <beans:property name="classesToBeBound">
                     <beans:list>
                         <beans:value>org.serge009.fishtrading.core.entity.Coffee</beans:value>
+                        <beans:value>org.serge009.fishtrading.rest.ProductList</beans:value>
                     </beans:list>
                 </beans:property>
             </beans:bean>
