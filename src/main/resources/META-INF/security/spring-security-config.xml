@@ -6,8 +6,8 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http>
-        <intercept-url pattern="/contact*" access="ROLE_ADMIN"/>
+    <http use-expressions="true">
+        <intercept-url pattern="/contact**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/login*" access="ROLE_ANONYMOUS"/>
         <intercept-url pattern="/rest*" access="ROLE_ANONYMOUS"/>
         <form-login/>
@@ -15,10 +15,11 @@
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
+        <authentication-provider user-service-ref="securityService">
+            <!--<jdbc-user-service id="jdbcUserDetailsManager" data-source-ref="dataSource" />-->
+            <!--<user-service>
                 <user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-            </user-service>
+            </user-service>-->
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

@@ -2,8 +2,10 @@ import org.serge009.fishtrading.core.entity.Contact;
 import org.serge009.fishtrading.core.entity.ContactTelDetail;
 import org.serge009.fishtrading.core.entity.Hobby;
 import org.serge009.fishtrading.service.ContactService;
+import org.serge009.fishtrading.service.SecurityService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,14 @@ import java.util.List;
 public class TestConfiguration {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("META-INF/spring/app-context.xml");
-        ContactService service = ctx.getBean("contactService", ContactService.class);
+        SecurityService service = ctx.getBean("securityService", SecurityService.class);
+
+        UserDetails admin = service.loadUserByUsername("admin");
+        System.out.println(admin);
+        /*ContactService service = ctx.getBean("contactService", ContactService.class);
         List<Contact> contacts = new ArrayList<>();
         contacts.add(service.findById(1l));
-        listContactsWithDetail(contacts);
+        listContactsWithDetail(contacts);*/
     }
 
     private static void listContactsWithDetail(List<Contact> contacts) {
