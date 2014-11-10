@@ -5,8 +5,11 @@ import org.serge009.fishtrading.service.ProductService;
 import org.springframework.context.annotation.Scope;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,9 +22,9 @@ public class BasketBean {
     @Inject
     private ProductService productService;
 
-    private List<Product> productList;
+    private List<Product> productList = new ArrayList<>();
 
-    @PostConstruct
+    //@PostConstruct
     private void init() {
         this.productList = productService.findAll();
     }
@@ -32,5 +35,13 @@ public class BasketBean {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public void addProduct(Product product) {
+        productList.add(product);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful",  "Added!"));
     }
 }

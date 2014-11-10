@@ -15,8 +15,8 @@
 
 
     <jdbc:embedded-database id="dataSource" type="H2">
-        <!--<jdbc:script location="classpath:META-INF/sql/schema.sql"/>
-        <jdbc:script location="classpath:META-INF/sql/test-data.sql"/>-->
+        <jdbc:script location="classpath:META-INF/sql/schema.sql"/>
+        <jdbc:script location="classpath:META-INF/sql/test-data.sql"/>
         <jdbc:script location="classpath:META-INF/sql/users-schema.sql"/>
         <jdbc:script location="classpath:META-INF/sql/user-data.sql"/>
     </jdbc:embedded-database>
