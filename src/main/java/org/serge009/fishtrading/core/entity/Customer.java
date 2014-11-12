@@ -20,4 +20,12 @@ public class Customer extends User {
     public void setPayRight(int payRight) {
         this.payRight = payRight;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "payRight=" + payRight +
+                super.toString() +
+                '}';
+    }
 }
