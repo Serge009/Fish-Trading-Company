@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Created by SERGE on 08.11.2014.
  */
+@Inheritance(strategy = InheritanceType.JOINED)
 @Entity
 @Table(name = "user")
 public class User implements UserDetails {
@@ -18,6 +19,12 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int id;
+
+    @Column(name = "NAME")
+    private String name;
+
+    @Column(name = "SURNAME")
+    private String surname;
 
     @Column(name = "USERNAME")
     private String username;
@@ -28,6 +35,22 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Authority> authorities;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -88,6 +111,8 @@ public class User implements UserDetails {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", authorities=" + authorities +
