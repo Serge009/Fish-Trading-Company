@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,9 +33,9 @@ public class User implements UserDetails {
     @Column(name = "PASSWORD")
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Authority> authorities;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Authority> authorities = new ArrayList<>();
+    //TODO: change it to Set
 
     public String getName() {
         return name;
@@ -85,6 +86,11 @@ public class User implements UserDetails {
 
     public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;
+    }
+
+    public void addAuthority(Authority authority) {
+        authority.setUser(this);
+        this.authorities.add(authority);
     }
 
     @Override

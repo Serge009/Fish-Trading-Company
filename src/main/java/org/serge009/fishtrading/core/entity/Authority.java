@@ -23,6 +23,12 @@ public class Authority implements GrantedAuthority {
     @Column(name = "ROLE")
     private String authority;
 
+    public Authority() {}
+
+    public Authority(String authority) {
+        this.authority = authority;
+    }
+
     public int getId() {
         return id;
     }

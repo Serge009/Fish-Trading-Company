@@ -13,6 +13,10 @@ public class Customer extends User {
     @Column(name = "PAYMENT_RIGHT")
     private int payRight;
 
+    public Customer() {
+        this.addAuthority(new Authority(Roles.ROLE_CUSTOMER));
+    }
+
     public int getPayRight() {
         return payRight;
     }
